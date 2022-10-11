@@ -516,6 +516,19 @@ var (
 				aws.String(":function:(?P<FunctionName>[^/]+)"),
 			},
 		}, {
+			Namespace: "AWS/MediaConnect",
+			Alias:     "mediaconnect",
+			ResourceFilters: []*string{
+				aws.String("mediaconnect:flow"),
+				aws.String("mediaconnect:source"),
+				aws.String("mediaconnect:output"),
+			},
+			DimensionRegexps: []*string{
+				aws.String("^(?P<FlowARN>.*:flow:.*)$"),
+				aws.String("^(?P<SourceARN>.*:source:.*)$"),
+				aws.String("^(?P<OutputARN>.*:output:.*)$"),
+			},
+		}, {
 			Namespace: "AWS/MediaTailor",
 			Alias:     "mediatailor",
 			ResourceFilters: []*string{
