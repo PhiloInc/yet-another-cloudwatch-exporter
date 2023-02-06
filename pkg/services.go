@@ -529,6 +529,15 @@ var (
 				aws.String("^(?P<OutputARN>.*:output:.*)$"),
 			},
 		}, {
+			Namespace: "AWS/MediaLive",
+			Alias:     "medialive",
+			ResourceFilters: []*string{
+				aws.String("medialive:channel"),
+			},
+			DimensionRegexps: []*string{
+				aws.String(":channel:(?P<ChannelId>.+)$"),
+			},
+		}, {
 			Namespace: "AWS/MediaTailor",
 			Alias:     "mediatailor",
 			ResourceFilters: []*string{
